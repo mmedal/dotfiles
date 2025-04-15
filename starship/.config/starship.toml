@@ -1,0 +1,206 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+format = """
+($status\n)\
+[╭╴](fg:text)\
+$username\
+$os\
+$git_branch${git_status}\
+(\
+    at \
+    $directory\
+)\
+(\
+    via \
+    $python\
+    $conda\
+    $nodejs\
+    $c\
+    $rust\
+    $java\
+    $ruby\
+    $elixir\
+    $dotnet\
+    $zig\
+)\
+$line_break\
+$character\
+"""
+
+add_newline = true
+
+palette = "catppuccin_mocha"
+
+[palettes.catppuccin_mocha]
+rosewater = "#f5e0dc"
+flamingo = "#f2cdcd"
+pink = "#f5c2e7"
+mauve = "#cba6f7"
+red = "#f38ba8"
+maroon = "#eba0ac"
+peach = "#fab387"
+yellow = "#f9e2af"
+green = "#a6e3a1"
+teal = "#94e2d5"
+sky = "#89dceb"
+sapphire = "#74c7ec"
+blue = "#89b4fa"
+lavender = "#b4befe"
+text = "#cdd6f4"
+subtext1 = "#bac2de"
+subtext0 = "#a6adc8"
+overlay2 = "#9399b2"
+overlay1 = "#7f849c"
+overlay0 = "#6c7086"
+surface2 = "#585b70"
+surface1 = "#45475a"
+surface0 = "#313244"
+base = "#1e1e2e"
+mantle = "#181825"
+crust = "#11111b"
+
+[line_break]
+disabled = false
+
+[username]
+style_user = 'bold sky'
+style_root = 'bold yellow'
+format = '[  $user](fg:$style) '
+disabled = false
+show_always = true
+
+[os]
+format = "on [($name)]($style) "
+style = "bold fg:sky"
+disabled = true
+
+[os.symbols]
+Alpine = " "
+Arch = " "
+Debian = " "
+EndeavourOS = " "
+Fedora = " "
+Linux = " "
+Macos = " "
+Manjaro = " "
+Mint = " "
+NixOS = " "
+openSUSE = " "
+Pop = " "
+SUSE = " "
+Ubuntu = " "
+Windows = " "
+
+[character]
+success_symbol = "[➜](fg:text)"
+error_symbol = "[➜](fg:red)"
+
+[directory]
+format = "[$path](bold $style)[$read_only]($read_only_style) "
+truncation_length = 2
+style = "fg:teal"
+read_only_style = "fg:teal"
+before_repo_root_style = "fg:teal"
+truncation_symbol = "…/"
+truncate_to_repo = true
+read_only ="  "
+
+[time]
+disabled = true
+format = "at [󱑈 $time]($style)"
+time_format = "%H:%M"
+style = "bold fg:subtext1"
+
+[cmd_duration]
+format = "took [ $duration]($style) "
+style = "bold fg:red"
+min_time = 500
+
+[git_branch]
+format = "via [$symbol$branch]($style) "
+style = "bold fg:red"
+symbol = " "
+
+[git_status]
+disabled = false
+style = "fg:peach"
+format = "$all_status$ahead_behind"
+
+[docker_context]
+disabled=true
+symbol = " "
+
+[package]
+disabled=true
+
+[fill]
+symbol = " "
+
+[python]
+disabled = false
+format = '[](fg:python)[$symbol${pyenv_prefix}(${version})(\($virtualenv\))]($style)[](fg:python)'
+symbol = " "
+version_format = "${raw}"
+style = "fg:crust bg:python"
+
+[conda]
+disabled = false
+format = '[](fg:peach)[$symbol$environment]($style)[](fg:peach)'
+symbol = " "
+style = "fg:crust bg:peach"
+ignore_base = false
+
+[nodejs]
+disabled = false
+format = '[](fg:green)[$symbol$version]($style)[](fg:green)'
+symbol = " "
+version_format = "${raw}"
+style = "fg:crust bg:green"
+
+[c]
+disabled = true
+format = '[](fg:blue)[$symbol($version(-$name))]($style)[](fg:blue)'
+symbol = " "
+version_format = "${raw}"
+style = "fg:crust bg:blue"
+
+[rust]
+disabled = true
+format = '[](fg:maroon)[$symbol$version]($style)[](fg:maroon)'
+symbol = " "
+version_format = "${raw}"
+style = "fg:crust bg:maroon"
+
+[java]
+disabled = true
+format = '[](fg:pink)[$symbol$version]($style)[](fg:pink)'
+symbol = " "
+version_format = "${raw}"
+style = "fg:crust bg:pink"
+
+[ruby]
+disabled = false
+format = '[](fg:red)[$symbol($version)]($style)[](fg:red)'
+symbol = " "
+version_format = "${raw}"
+style = "fg:crust bg:red"
+
+[elixir]
+disabled = false
+format = '[](fg:flamingo)[$symbol($version)]($style)[](fg:flamingo)'
+symbol = " "
+version_format = "${raw}"
+style = "fg:crust bg:flamingo"
+
+[dotnet]
+disabled = false
+format = '[](fg:sapphire)[$symbol($version)]($style)[](fg:sapphire)'
+symbol = " "
+version_format = "${raw}"
+style = "fg:crust bg:sapphire"
+
+[zig]
+disabled = false
+format = '[](fg:yellow)[$symbol($version)]($style)[](fg:yellow)'
+symbol = " "
+version_format = "${raw}"
+style = "fg:crust bg:yellow"

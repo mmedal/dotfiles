@@ -1,0 +1,14 @@
+[user]
+	name = Matthew Medal
+	email = matt.medal@gmail.com
+[core]
+	editor = nvim
+	excludesfile = /Users/mmedal/.gitignore
+[commit]
+	gpgsign = true
+[init]
+	defaultBranch = main
+
+# add signingkey via local config
+[includeIf "gitdir:~/"]
+  path = ~/.gitconfig.local
