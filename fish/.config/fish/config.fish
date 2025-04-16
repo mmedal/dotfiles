@@ -11,9 +11,22 @@ if status is-interactive
     # Starship setup
     starship init fish | source
 
+    # yazi
+    function y
+        set tmp (mktemp -t "yazi-cwd.XXXXXX")
+        yazi $argv --cwd-file="$tmp"
+        if set cwd (command cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
+            builtin cd -- "$cwd"
+        end
+        rm -f -- "$tmp"
+    end
+
     # aliases
     alias ls='eza -a'
     alias ll='eza -la'
+
+    # env vars
+    set -gx EDITOR nvim
 end
 
 # Homebrew setup
