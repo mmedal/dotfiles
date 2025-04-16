@@ -10,6 +10,10 @@ if status is-interactive
 
     # Starship setup
     starship init fish | source
+
+    # aliases
+    alias ls='eza -a'
+    alias ll='eza -la'
 end
 
 # Homebrew setup
