@@ -2,7 +2,7 @@
 
 options=(
   width=10.0
-  active_color=0xff94e2d5
+  active_color=0xff89b4fa
   inactive_color=0xff414550
 )
 
