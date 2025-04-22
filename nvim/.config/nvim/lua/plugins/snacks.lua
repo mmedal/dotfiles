@@ -25,23 +25,23 @@ return {
     {
       "<leader>__",
       function()
-        Snacks.scratch()
+        require("utils.scratch").toggle_scratch()
       end,
-      desc = "Toggle Scratch Buffer",
+      desc = "Toggle scratch buffer",
     },
     {
       "<leader>_n",
       function()
         require("utils.scratch").new_scratch(filetypes)
       end,
-      desc = "New Scratch Buffer",
+      desc = "New scratch buffer",
     },
     {
       "<leader>_s",
       function()
         require("utils.scratch").select_scratch()
       end,
-      desc = "Select Scratch Buffer",
+      desc = "Select scratch buffer",
     },
   },
   opts = {

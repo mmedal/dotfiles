@@ -78,9 +78,12 @@ function M.select_scratch()
         end)
       end,
     },
-    confirm = function(_, item)
+    confirm = function(picker, item)
       if item then
-        Snacks.scratch.open({ icon = item.icon, file = item.file, name = item.name, ft = item.ft })
+        picker:close()
+        vim.schedule(function()
+          Snacks.scratch.open({ icon = item.icon, file = item.file, name = item.name, ft = item.ft })
+        end)
       end
     end,
   })
@@ -99,6 +102,7 @@ function M.new_scratch(filetypes)
     actions = {
       confirm = function(picker, item)
         picker:close()
+        -- Close the picker window immediately
         vim.schedule(function()
           local items = picker:items()
           if #items == 0 then
@@ -110,6 +114,38 @@ function M.new_scratch(filetypes)
       end,
     },
   })
+end
+
+-- Add a new toggle function that truly toggles
+function M.toggle_scratch()
+  local scratch_buffers = Snacks.scratch.list()
+
+  -- Check if we're currently in a scratch buffer
+  local current_buf = vim.api.nvim_get_current_buf()
+  local current_buf_name = vim.api.nvim_buf_get_name(current_buf)
+
+  for _, item in ipairs(scratch_buffers) do
+    if item.file == current_buf_name then
+      -- We're in a scratch buffer, close it
+      vim.cmd("close")
+      return
+    end
+  end
+
+  -- Not in a scratch buffer
+  if #scratch_buffers > 0 then
+    -- If there are existing scratch buffers, open the most recent one
+    local latest = scratch_buffers[1]
+    Snacks.scratch.open({
+      icon = latest.icon,
+      file = latest.file,
+      name = latest.name,
+      ft = latest.ft,
+    })
+  else
+    -- No scratch buffers exist, show filetype selector
+    M.new_scratch(filetypes)
+  end
 end
 
 return M
