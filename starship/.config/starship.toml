@@ -1,34 +1,112 @@
+# Get editor completions based on the config schema
 "$schema" = 'https://starship.rs/config-schema.json'
-format = """
-($status\n)\
-[╭╴](fg:text)\
-$username\
-$os\
-$git_branch${git_status}\
-(\
-    at \
-    $directory\
-)\
-(\
-    via \
-    $python\
-    $conda\
-    $nodejs\
-    $c\
-    $rust\
-    $java\
-    $ruby\
-    $elixir\
-    $dotnet\
-    $zig\
-)\
-$line_break\
-$character\
-"""
-
-add_newline = true
 
 palette = "catppuccin_mocha"
+
+[character]
+success_symbol = "[➜](fg:green)"
+error_symbol = "[➜](fg:red)"
+vimcmd_symbol = "[➜](fg:green)"
+vimcmd_replace_symbol = "[➜](fg:green)"
+vimcmd_replace_one_symbol = "[➜](fg:lavender)"
+vimcmd_visual_symbol = "[➜](fg:yellow)"
+
+[directory]
+truncation_length = 2
+truncation_symbol = "…/"
+truncate_to_repo = true
+style = "bold mauve"
+
+[battery]
+disabled = true
+
+[cmd_duration]
+disabled = true
+
+# Palette definitions
+[palettes.catppuccin_latte]
+rosewater = "#dc8a78"
+flamingo = "#dd7878"
+pink = "#ea76cb"
+mauve = "#8839ef"
+red = "#d20f39"
+maroon = "#e64553"
+peach = "#fe640b"
+yellow = "#df8e1d"
+green = "#40a02b"
+teal = "#179299"
+sky = "#04a5e5"
+sapphire = "#209fb5"
+blue = "#1e66f5"
+lavender = "#7287fd"
+text = "#4c4f69"
+subtext1 = "#5c5f77"
+subtext0 = "#6c6f85"
+overlay2 = "#7c7f93"
+overlay1 = "#8c8fa1"
+overlay0 = "#9ca0b0"
+surface2 = "#acb0be"
+surface1 = "#bcc0cc"
+surface0 = "#ccd0da"
+base = "#eff1f5"
+mantle = "#e6e9ef"
+crust = "#dce0e8"
+
+[palettes.catppuccin_frappe]
+rosewater = "#f2d5cf"
+flamingo = "#eebebe"
+pink = "#f4b8e4"
+mauve = "#ca9ee6"
+red = "#e78284"
+maroon = "#ea999c"
+peach = "#ef9f76"
+yellow = "#e5c890"
+green = "#a6d189"
+teal = "#81c8be"
+sky = "#99d1db"
+sapphire = "#85c1dc"
+blue = "#8caaee"
+lavender = "#babbf1"
+text = "#c6d0f5"
+subtext1 = "#b5bfe2"
+subtext0 = "#a5adce"
+overlay2 = "#949cbb"
+overlay1 = "#838ba7"
+overlay0 = "#737994"
+surface2 = "#626880"
+surface1 = "#51576d"
+surface0 = "#414559"
+base = "#303446"
+mantle = "#292c3c"
+crust = "#232634"
+
+[palettes.catppuccin_macchiato]
+rosewater = "#f4dbd6"
+flamingo = "#f0c6c6"
+pink = "#f5bde6"
+mauve = "#c6a0f6"
+red = "#ed8796"
+maroon = "#ee99a0"
+peach = "#f5a97f"
+yellow = "#eed49f"
+green = "#a6da95"
+teal = "#8bd5ca"
+sky = "#91d7e3"
+sapphire = "#7dc4e4"
+blue = "#8aadf4"
+lavender = "#b7bdf8"
+text = "#cad3f5"
+subtext1 = "#b8c0e0"
+subtext0 = "#a5adcb"
+overlay2 = "#939ab7"
+overlay1 = "#8087a2"
+overlay0 = "#6e738d"
+surface2 = "#5b6078"
+surface1 = "#494d64"
+surface0 = "#363a4f"
+base = "#24273a"
+mantle = "#1e2030"
+crust = "#181926"
 
 [palettes.catppuccin_mocha]
 rosewater = "#f5e0dc"
@@ -57,150 +135,3 @@ surface0 = "#313244"
 base = "#1e1e2e"
 mantle = "#181825"
 crust = "#11111b"
-
-[line_break]
-disabled = false
-
-[username]
-style_user = 'bold sky'
-style_root = 'bold yellow'
-format = '[  $user](fg:$style) '
-disabled = false
-show_always = true
-
-[os]
-format = "on [($name)]($style) "
-style = "bold fg:sky"
-disabled = true
-
-[os.symbols]
-Alpine = " "
-Arch = " "
-Debian = " "
-EndeavourOS = " "
-Fedora = " "
-Linux = " "
-Macos = " "
-Manjaro = " "
-Mint = " "
-NixOS = " "
-openSUSE = " "
-Pop = " "
-SUSE = " "
-Ubuntu = " "
-Windows = " "
-
-[character]
-success_symbol = "[➜](fg:text)"
-error_symbol = "[➜](fg:red)"
-
-[directory]
-format = "[$path](bold $style)[$read_only]($read_only_style) "
-truncation_length = 2
-style = "fg:teal"
-read_only_style = "fg:teal"
-before_repo_root_style = "fg:teal"
-truncation_symbol = "…/"
-truncate_to_repo = true
-read_only ="  "
-
-[time]
-disabled = true
-format = "at [󱑈 $time]($style)"
-time_format = "%H:%M"
-style = "bold fg:subtext1"
-
-[cmd_duration]
-format = "took [ $duration]($style) "
-style = "bold fg:red"
-min_time = 500
-
-[git_branch]
-format = "via [$symbol$branch]($style) "
-style = "bold fg:red"
-symbol = " "
-
-[git_status]
-disabled = false
-style = "fg:peach"
-format = "$all_status$ahead_behind"
-
-[docker_context]
-disabled=true
-symbol = " "
-
-[package]
-disabled=true
-
-[fill]
-symbol = " "
-
-[python]
-disabled = false
-format = '[](fg:python)[$symbol${pyenv_prefix}(${version})(\($virtualenv\))]($style)[](fg:python)'
-symbol = " "
-version_format = "${raw}"
-style = "fg:crust bg:python"
-
-[conda]
-disabled = false
-format = '[](fg:peach)[$symbol$environment]($style)[](fg:peach)'
-symbol = " "
-style = "fg:crust bg:peach"
-ignore_base = false
-
-[nodejs]
-disabled = false
-format = '[](fg:green)[$symbol$version]($style)[](fg:green)'
-symbol = " "
-version_format = "${raw}"
-style = "fg:crust bg:green"
-
-[c]
-disabled = true
-format = '[](fg:blue)[$symbol($version(-$name))]($style)[](fg:blue)'
-symbol = " "
-version_format = "${raw}"
-style = "fg:crust bg:blue"
-
-[rust]
-disabled = true
-format = '[](fg:maroon)[$symbol$version]($style)[](fg:maroon)'
-symbol = " "
-version_format = "${raw}"
-style = "fg:crust bg:maroon"
-
-[java]
-disabled = true
-format = '[](fg:pink)[$symbol$version]($style)[](fg:pink)'
-symbol = " "
-version_format = "${raw}"
-style = "fg:crust bg:pink"
-
-[ruby]
-disabled = false
-format = '[](fg:red)[$symbol($version)]($style)[](fg:red)'
-symbol = " "
-version_format = "${raw}"
-style = "fg:crust bg:red"
-
-[elixir]
-disabled = false
-format = '[](fg:flamingo)[$symbol($version)]($style)[](fg:flamingo)'
-symbol = " "
-version_format = "${raw}"
-style = "fg:crust bg:flamingo"
-
-[dotnet]
-disabled = false
-format = '[](fg:sapphire)[$symbol($version)]($style)[](fg:sapphire)'
-symbol = " "
-version_format = "${raw}"
-style = "fg:crust bg:sapphire"
-
-[zig]
-disabled = false
-format = '[](fg:yellow)[$symbol($version)]($style)[](fg:yellow)'
-symbol = " "
-version_format = "${raw}"
-style = "fg:crust bg:yellow"
