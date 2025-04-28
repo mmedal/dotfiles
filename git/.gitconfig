@@ -8,6 +8,8 @@
 	gpgsign = true
 [init]
 	defaultBranch = main
+[push]
+  autoSetupRemote = true
 
 # add signingkey via local config
 [includeIf "gitdir:~/"]
