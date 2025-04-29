@@ -13,7 +13,10 @@ local filetypes = {
 
 return {
   "snacks.nvim",
+  priority = 100,
   keys = {
+    -- Main buffers
+    { "<leader>,", false },
     -- Dashboard
     { "<leader>e", false },
     { "<leader>E", false },
