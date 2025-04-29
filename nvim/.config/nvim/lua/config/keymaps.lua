@@ -4,7 +4,9 @@
 
 -- Make x always cut to _
 vim.keymap.set({ "n", "v" }, "x", '"_x', { desc = "Delete without yanking" })
--- Unbind default keywordprg
-vim.keymap.del("n", "<leader>K")
 -- Rebind end of line
 vim.keymap.set({ "n", "v", "o" }, "-", "$", { desc = "End of line" })
+-- Unbinds
+vim.keymap.del("n", "<leader>K")
+vim.keymap.set({ "n", "i", "v" }, "<C-a>", "<Nop>", { noremap = true })
+vim.keymap.set({ "n", "i", "v" }, "<C-x>", "<Nop>", { noremap = true })
