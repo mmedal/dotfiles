@@ -1,1 +1,110 @@
+default_layout "terminal"
+
 theme "catppuccin-mocha"
+
+show_startup_tips false
+
+ui {
+    pane_frames {
+        rounded_corners true
+    }
+}
+
+plugins {
+    // Default plugins
+    tab-bar location="zellij:tab-bar"
+    status-bar location="zellij:status-bar"
+    strider location="zellij:strider"
+    compact-bar location="zellij:compact-bar"
+    session-manager location="zellij:session-manager"
+    welcome-screen location="zellij:session-manager" {
+        welcome_screen true
+    }
+    filepicker location="zellij:strider" {
+        cwd "~/"
+    }
+    configuration location="zellij:configuration"
+    plugin-manager location="zellij:plugin-manager"
+    about location="zellij:about"
+    zjstatus location="file:~/.config/zellij/plugins/zjstatus.wasm" {
+      // Catppuccin Mocha colors
+      color_crust "#11111b"      // Crust
+      color_mantle "#181825"     // Mantle
+      color_base "#1e1e2e"       // Base
+      color_surface0 "#313244"   // Surface0
+      color_surface1 "#45475a"   // Surface1
+      color_surface2 "#585b70"   // Surface2
+      color_text "#cdd6f4"       // Text
+      color_subtext0 "#a6adc8"   // Subtext0
+      color_subtext1 "#bac2de"   // Subtext1
+      color_overlay0 "#6c7086"   // Overlay0
+      color_red "#f38ba8"        // Red
+      color_maroon "#eba0ac"     // Maroon
+      color_peach "#fab387"      // Peach
+      color_yellow "#f9e2af"     // Yellow
+      color_green "#a6e3a1"      // Green
+      color_teal "#94e2d5"       // Teal
+      color_sky "#89dceb"        // Sky
+      color_sapphire "#74c7ec"   // Sapphire
+      color_blue "#89b4fa"       // Blue
+      color_lavender "#b4befe"   // Lavender
+      color_mauve "#cba6f7"      // Mauve
+      color_pink "#f5c2e7"       // Pink
+      color_flamingo "#f2cdcd"   // Flamingo
+      color_rosewater "#f5e0dc"  // Rosewater
+
+      format_left   " {mode}#[bg=$base] {tabs}"
+      format_center ""
+      format_right  "#[bg=$base,fg=$blue]#[bg=$blue,fg=$mantle,bold] #[bg=$surface0,fg=$blue,bold] {session} #[bg=$base,fg=$surface0,bold]"
+      format_space  ""
+      format_hide_on_overlength "true"
+      format_precedence "crl"
+
+      border_enabled  "false"
+      border_char     "─"
+      border_format   "#[fg=$overlay0]{char}"
+      border_position "bottom"
+
+      mode_normal        "#[bg=$green,fg=$mantle,bold] NORMAL#[bg=$base,fg=$green]█"
+      mode_locked        "#[bg=$overlay0,fg=$mantle,bold] LOCKED #[bg=$base,fg=$overlay0]█"
+      mode_resize        "#[bg=$red,fg=$mantle,bold] RESIZE#[bg=$base,fg=$red]█"
+      mode_pane          "#[bg=$blue,fg=$mantle,bold] PANE#[bg=$base,fg=$blue]█"
+      mode_tab           "#[bg=$lavender,fg=$mantle,bold] TAB#[bg=$base,fg=$lavender]█"
+      mode_scroll        "#[bg=$yellow,fg=$mantle,bold] SCROLL#[bg=$base,fg=$yellow]█"
+      mode_enter_search  "#[bg=$blue,fg=$mantle,bold] ENT-SEARCH#[bg=$base,fg=$blue]█"
+      mode_search        "#[bg=$blue,fg=$mantle,bold] SEARCHARCH#[bg=$base,fg=$blue]█"
+      mode_rename_tab    "#[bg=$lavender,fg=$mantle,bold] RENAME-TAB#[bg=$base,fg=$lavender]█"
+      mode_rename_pane   "#[bg=$blue,fg=$mantle,bold] RENAME-PANE#[bg=$base,fg=$blue]█"
+      mode_session       "#[bg=$sapphire,fg=$mantle,bold] SESSION#[bg=$base,fg=$sapphire]█"
+      mode_move          "#[bg=$pink,fg=$mantle,bold] MOVE#[bg=$base,fg=$pink]█"
+      mode_prompt        "#[bg=$blue,fg=$mantle,bold] PROMPT#[bg=$base,fg=$blue]█"
+      mode_tmux          "#[bg=$peach,fg=$mantle,bold] TMUX#[bg=$base,fg=$peach]█"
+
+      // formatting for inactive tabs
+      tab_normal              "#[bg=$base,fg=$blue]█#[bg=$blue,fg=$mantle,bold]{index} #[bg=$surface0,fg=$blue,bold] {name}{floating_indicator}#[bg=$base,fg=$surface0,bold]█"
+      tab_normal_fullscreen   "#[bg=$base,fg=$blue]█#[bg=$blue,fg=$mantle,bold]{index} #[bg=$surface0,fg=$blue,bold] {name}{fullscreen_indicator}#[bg=$base,fg=$surface0,bold]█"
+      tab_normal_sync         "#[bg=$base,fg=$blue]█#[bg=$blue,fg=$mantle,bold]{index} #[bg=$surface0,fg=$blue,bold] {name}{sync_indicator}#[bg=$base,fg=$surface0,bold]█"
+
+      // formatting for the current active tab
+      tab_active              "#[bg=$base,fg=$peach]█#[bg=$peach,fg=$mantle,bold]{index} #[bg=$surface0,fg=$peach,bold] {name}{floating_indicator}#[bg=$base,fg=$surface0,bold]█"
+      tab_active_fullscreen   "#[bg=$base,fg=$peach]█#[bg=$peach,fg=$mantle,bold]{index} #[bg=$surface0,fg=$peach,bold] {name}{fullscreen_indicator}#[bg=$base,fg=$surface0,bold]█"
+      tab_active_sync         "#[bg=$base,fg=$peach]█#[bg=$peach,fg=$mantle,bold]{index} #[bg=$surface0,fg=$peach,bold] {name}{sync_indicator}#[bg=$base,fg=$surface0,bold]█"
+
+      // separator between the tabs
+      tab_separator           "#[bg=$base] "
+
+      // indicators
+      tab_sync_indicator       " "
+      tab_fullscreen_indicator " 󰊓"
+      tab_floating_indicator   " 󰹙"
+
+      command_git_branch_command     "git rev-parse --abbrev-ref HEAD"
+      command_git_branch_format      "#[fg=$blue] {stdout} "
+      command_git_branch_interval    "10"
+      command_git_branch_rendermode  "static"
+
+      datetime        "#[fg=$overlay0,bold] {format} "
+      datetime_format "%Y-%m-%d %H:%M"
+      datetime_timezone "America/Los_Angeles"
+    }
+}
