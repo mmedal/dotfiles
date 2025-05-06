@@ -55,7 +55,7 @@ plugins {
 
       format_left   " {mode}#[bg=$base] {tabs}"
       format_center ""
-      format_right  "#[bg=$base,fg=$blue]#[bg=$blue,fg=$mantle,bold] #[bg=$surface0,fg=$blue,bold] {session} #[bg=$base,fg=$surface0,bold]"
+      format_right  "#[bg=$base,fg=$blue]#[bg=$blue,fg=$mantle,bold] #[bg=$surface0,fg=$blue,bold] {session} #[bg=$base,fg=$surface0,bold] #[bg=$base,fg=$blue]#[bg=$blue,fg=$mantle,bold]󰃭 {datetime}"
       format_space  ""
       format_hide_on_overlength "true"
       format_precedence "crl"
@@ -65,30 +65,30 @@ plugins {
       border_format   "#[fg=$overlay0]{char}"
       border_position "bottom"
 
-      mode_normal        "#[bg=$green,fg=$mantle,bold] NORMAL#[bg=$base,fg=$green]█"
-      mode_locked        "#[bg=$overlay0,fg=$mantle,bold] LOCKED #[bg=$base,fg=$overlay0]█"
-      mode_resize        "#[bg=$red,fg=$mantle,bold] RESIZE#[bg=$base,fg=$red]█"
-      mode_pane          "#[bg=$blue,fg=$mantle,bold] PANE#[bg=$base,fg=$blue]█"
-      mode_tab           "#[bg=$lavender,fg=$mantle,bold] TAB#[bg=$base,fg=$lavender]█"
-      mode_scroll        "#[bg=$yellow,fg=$mantle,bold] SCROLL#[bg=$base,fg=$yellow]█"
-      mode_enter_search  "#[bg=$blue,fg=$mantle,bold] ENT-SEARCH#[bg=$base,fg=$blue]█"
-      mode_search        "#[bg=$blue,fg=$mantle,bold] SEARCHARCH#[bg=$base,fg=$blue]█"
-      mode_rename_tab    "#[bg=$lavender,fg=$mantle,bold] RENAME-TAB#[bg=$base,fg=$lavender]█"
-      mode_rename_pane   "#[bg=$blue,fg=$mantle,bold] RENAME-PANE#[bg=$base,fg=$blue]█"
-      mode_session       "#[bg=$sapphire,fg=$mantle,bold] SESSION#[bg=$base,fg=$sapphire]█"
-      mode_move          "#[bg=$pink,fg=$mantle,bold] MOVE#[bg=$base,fg=$pink]█"
-      mode_prompt        "#[bg=$blue,fg=$mantle,bold] PROMPT#[bg=$base,fg=$blue]█"
-      mode_tmux          "#[bg=$peach,fg=$mantle,bold] TMUX#[bg=$base,fg=$peach]█"
+      mode_normal        "#[bg=$base,fg=$green]#[bg=$green,fg=$mantle,bold]NORMAL "
+      mode_locked        "#[bg=$base,fg=$overlay0]#[bg=$overlay0,fg=$mantle,bold]LOCKED  "
+      mode_resize        "#[bg=$base,fg=$red]#[bg=$red,fg=$mantle,bold]RESIZE "
+      mode_pane          "#[bg=$base,fg=$blue]#[bg=$blue,fg=$mantle,bold]PANE "
+      mode_tab           "#[bg=$base,fg=$lavender]#[bg=$lavender,fg=$mantle,bold]TAB "
+      mode_scroll        "#[bg=$base,fg=$yellow]#[bg=$yellow,fg=$mantle,bold]SCROLL "
+      mode_enter_search  "#[bg=$base,fg=$blue]#[bg=$blue,fg=$mantle,bold]ENT-SEARCH "
+      mode_search        "#[bg=$base,fg=$blue]#[bg=$blue,fg=$mantle,bold]SEARCHARCH "
+      mode_rename_tab    "#[bg=$base,fg=$lavender]#[bg=$lavender,fg=$mantle,bold]RENAME-TAB "
+      mode_rename_pane   "#[bg=$base,fg=$blue]#[bg=$blue,fg=$mantle,bold]RENAME-PANE "
+      mode_session       "#[bg=$base,fg=$sapphire]#[bg=$sapphire,fg=$mantle,bold]SESSION "
+      mode_move          "#[bg=$base,fg=$pink]#[bg=$pink,fg=$mantle,bold]MOVE "
+      mode_prompt        "#[bg=$base,fg=$blue]#[bg=$blue,fg=$mantle,bold]PROMPT "
+      mode_tmux          "#[bg=$base,fg=$peach]#[bg=$peach,fg=$mantle,bold]TMUX "
 
       // formatting for inactive tabs
-      tab_normal              "#[bg=$base,fg=$blue]█#[bg=$blue,fg=$mantle,bold]{index} #[bg=$surface0,fg=$blue,bold] {name}{floating_indicator}#[bg=$base,fg=$surface0,bold]█"
-      tab_normal_fullscreen   "#[bg=$base,fg=$blue]█#[bg=$blue,fg=$mantle,bold]{index} #[bg=$surface0,fg=$blue,bold] {name}{fullscreen_indicator}#[bg=$base,fg=$surface0,bold]█"
-      tab_normal_sync         "#[bg=$base,fg=$blue]█#[bg=$blue,fg=$mantle,bold]{index} #[bg=$surface0,fg=$blue,bold] {name}{sync_indicator}#[bg=$base,fg=$surface0,bold]█"
+      tab_normal              "#[bg=$base,fg=$blue]#[bg=$blue,fg=$mantle,bold]{index} #[bg=$surface0,fg=$blue,bold] {name}{floating_indicator}"
+      tab_normal_fullscreen   "#[bg=$base,fg=$blue]#[bg=$blue,fg=$mantle,bold]{index} #[bg=$surface0,fg=$blue,bold] {name}{fullscreen_indicator}"
+      tab_normal_sync         "#[bg=$base,fg=$blue]#[bg=$blue,fg=$mantle,bold]{index} #[bg=$surface0,fg=$blue,bold] {name}{sync_indicator}"
 
       // formatting for the current active tab
-      tab_active              "#[bg=$base,fg=$peach]█#[bg=$peach,fg=$mantle,bold]{index} #[bg=$surface0,fg=$peach,bold] {name}{floating_indicator}#[bg=$base,fg=$surface0,bold]█"
-      tab_active_fullscreen   "#[bg=$base,fg=$peach]█#[bg=$peach,fg=$mantle,bold]{index} #[bg=$surface0,fg=$peach,bold] {name}{fullscreen_indicator}#[bg=$base,fg=$surface0,bold]█"
-      tab_active_sync         "#[bg=$base,fg=$peach]█#[bg=$peach,fg=$mantle,bold]{index} #[bg=$surface0,fg=$peach,bold] {name}{sync_indicator}#[bg=$base,fg=$surface0,bold]█"
+      tab_active              "#[bg=$base,fg=$peach]#[bg=$peach,fg=$mantle,bold]{index} #[bg=$surface0,fg=$peach,bold] {name}{floating_indicator} "
+      tab_active_fullscreen   "#[bg=$base,fg=$peach]#[bg=$base,]#[bg=$peach,fg=$mantle,bold]{index} #[bg=$surface0,fg=$peach,bold] {name}{fullscreen_indicator} "
+      tab_active_sync         "#[bg=$base,fg=$peach]#[bg=$peach,fg=$mantle,bold]{index} #[bg=$surface0,fg=$peach,bold] {name}{sync_indicator} "
 
       // separator between the tabs
       tab_separator           "#[bg=$base] "
@@ -103,7 +103,7 @@ plugins {
       command_git_branch_interval    "10"
       command_git_branch_rendermode  "static"
 
-      datetime        "#[fg=$overlay0,bold] {format} "
+      datetime        "#[bg=$surface0,fg=$blue,bold] {format} "
       datetime_format "%Y-%m-%d %H:%M"
       datetime_timezone "America/Los_Angeles"
     }
