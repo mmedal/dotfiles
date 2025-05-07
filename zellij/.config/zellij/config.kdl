@@ -104,7 +104,7 @@ plugins {
       command_git_branch_rendermode  "static"
 
       datetime        "#[bg=$surface0,fg=$blue,bold] {format} "
-      datetime_format "%Y-%m-%d %H:%M"
+      datetime_format "%a %b %-d %-I:%M %p"
       datetime_timezone "America/Los_Angeles"
     }
 }
