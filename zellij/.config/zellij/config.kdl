@@ -3,12 +3,7 @@ default_layout "terminal"
 theme "catppuccin-mocha"
 
 show_startup_tips false
-
-ui {
-    pane_frames {
-        rounded_corners true
-    }
-}
+pane_frames false
 
 plugins {
     // Default plugins
@@ -53,7 +48,7 @@ plugins {
       color_flamingo "#f2cdcd"   // Flamingo
       color_rosewater "#f5e0dc"  // Rosewater
 
-      format_left   " {mode}#[bg=$base] {tabs}"
+      format_left   "{mode}#[bg=$base] {tabs}"
       format_center ""
       format_right  "#[bg=$base,fg=$blue]#[bg=$blue,fg=$mantle,bold] #[bg=$surface0,fg=$blue,bold] {session} #[bg=$base,fg=$surface0,bold] #[bg=$base,fg=$blue]#[bg=$blue,fg=$mantle,bold]󰃭 {datetime}"
       format_space  ""
