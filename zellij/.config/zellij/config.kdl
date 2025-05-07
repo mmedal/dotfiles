@@ -42,7 +42,8 @@ keybinds {
         bind "v" { NewPane "Right"; SwitchToMode "Normal"; }
         bind "x" { CloseFocus; SwitchToMode "Normal"; }
         bind "z" { ToggleFocusFullscreen; SwitchToMode "Normal"; }
-        bind "f" { ToggleFloatingPanes; }
+        bind "f" { ToggleFloatingPanes; SwitchToMode "Normal"; }
+        bind "i" { TogglePanePinned; SwitchToMode "Normal"; }
         bind "1" { GoToTab 1; SwitchToMode "Normal"; }
         bind "2" { GoToTab 2; SwitchToMode "Normal"; }
         bind "3" { GoToTab 3; SwitchToMode "Normal"; }
