@@ -24,6 +24,7 @@ if status is-interactive
     # aliases
     alias ls='eza -a'
     alias ll='eza -la'
+    alias lg='lazygit'
 
     # env vars
     set -gx EDITOR nvim
